@@ -1,12 +1,14 @@
 import cors from "cors"
 import express from "express"
-import { router } from "./router"
 import { errorHandlerMiddleware } from "./middlewares/errorHandler"
+import { leadsRouter } from "./routes/leadsRouter"
+import { groupsRouter } from "./routes/groupsRouter"
 const app = express()
 
-app.use(express.json())
 app.use(cors())
-app.use('/api', router)
+app.use(express.json())
+app.use('/api/leads', leadsRouter)
+app.use('/api/groups', groupsRouter)
 app.use(errorHandlerMiddleware)
 
 
