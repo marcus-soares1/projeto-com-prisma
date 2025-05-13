@@ -52,7 +52,7 @@ model Leads {
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
   groups         Groups[]         @relation("GroupsLeads")
-  LeadsCampaigns LeadsCampaigns[]
+  campaigns LeadsCampaigns[]
 }
 
 model Campaigns {
@@ -61,7 +61,7 @@ model Campaigns {
   description    String
   startDate      DateTime
   endDate        DateTime?
-  LeadsCampaigns LeadsCampaigns[]
+  leads LeadsCampaigns[]
 }
 
 model LeadsCampaigns {

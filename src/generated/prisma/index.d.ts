@@ -1215,12 +1215,12 @@ export namespace Prisma {
 
   export type LeadsCountOutputType = {
     groups: number
-    LeadsCampaigns: number
+    campaigns: number
   }
 
   export type LeadsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     groups?: boolean | LeadsCountOutputTypeCountGroupsArgs
-    LeadsCampaigns?: boolean | LeadsCountOutputTypeCountLeadsCampaignsArgs
+    campaigns?: boolean | LeadsCountOutputTypeCountCampaignsArgs
   }
 
   // Custom InputTypes
@@ -1244,7 +1244,7 @@ export namespace Prisma {
   /**
    * LeadsCountOutputType without action
    */
-  export type LeadsCountOutputTypeCountLeadsCampaignsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LeadsCountOutputTypeCountCampaignsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LeadsCampaignsWhereInput
   }
 
@@ -1254,11 +1254,11 @@ export namespace Prisma {
    */
 
   export type CampaignsCountOutputType = {
-    LeadsCampaigns: number
+    leads: number
   }
 
   export type CampaignsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    LeadsCampaigns?: boolean | CampaignsCountOutputTypeCountLeadsCampaignsArgs
+    leads?: boolean | CampaignsCountOutputTypeCountLeadsArgs
   }
 
   // Custom InputTypes
@@ -1275,7 +1275,7 @@ export namespace Prisma {
   /**
    * CampaignsCountOutputType without action
    */
-  export type CampaignsCountOutputTypeCountLeadsCampaignsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CampaignsCountOutputTypeCountLeadsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LeadsCampaignsWhereInput
   }
 
@@ -2577,7 +2577,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     groups?: boolean | Leads$groupsArgs<ExtArgs>
-    LeadsCampaigns?: boolean | Leads$LeadsCampaignsArgs<ExtArgs>
+    campaigns?: boolean | Leads$campaignsArgs<ExtArgs>
     _count?: boolean | LeadsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["leads"]>
 
@@ -2614,7 +2614,7 @@ export namespace Prisma {
   export type LeadsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "phone" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["leads"]>
   export type LeadsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     groups?: boolean | Leads$groupsArgs<ExtArgs>
-    LeadsCampaigns?: boolean | Leads$LeadsCampaignsArgs<ExtArgs>
+    campaigns?: boolean | Leads$campaignsArgs<ExtArgs>
     _count?: boolean | LeadsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type LeadsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2624,7 +2624,7 @@ export namespace Prisma {
     name: "Leads"
     objects: {
       groups: Prisma.$GroupsPayload<ExtArgs>[]
-      LeadsCampaigns: Prisma.$LeadsCampaignsPayload<ExtArgs>[]
+      campaigns: Prisma.$LeadsCampaignsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -3029,7 +3029,7 @@ export namespace Prisma {
   export interface Prisma__LeadsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     groups<T extends Leads$groupsArgs<ExtArgs> = {}>(args?: Subset<T, Leads$groupsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroupsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    LeadsCampaigns<T extends Leads$LeadsCampaignsArgs<ExtArgs> = {}>(args?: Subset<T, Leads$LeadsCampaignsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadsCampaignsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    campaigns<T extends Leads$campaignsArgs<ExtArgs> = {}>(args?: Subset<T, Leads$campaignsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadsCampaignsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3478,9 +3478,9 @@ export namespace Prisma {
   }
 
   /**
-   * Leads.LeadsCampaigns
+   * Leads.campaigns
    */
-  export type Leads$LeadsCampaignsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Leads$campaignsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the LeadsCampaigns
      */
@@ -3718,7 +3718,7 @@ export namespace Prisma {
     description?: boolean
     startDate?: boolean
     endDate?: boolean
-    LeadsCampaigns?: boolean | Campaigns$LeadsCampaignsArgs<ExtArgs>
+    leads?: boolean | Campaigns$leadsArgs<ExtArgs>
     _count?: boolean | CampaignsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["campaigns"]>
 
@@ -3748,7 +3748,7 @@ export namespace Prisma {
 
   export type CampaignsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "startDate" | "endDate", ExtArgs["result"]["campaigns"]>
   export type CampaignsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    LeadsCampaigns?: boolean | Campaigns$LeadsCampaignsArgs<ExtArgs>
+    leads?: boolean | Campaigns$leadsArgs<ExtArgs>
     _count?: boolean | CampaignsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CampaignsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3757,7 +3757,7 @@ export namespace Prisma {
   export type $CampaignsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Campaigns"
     objects: {
-      LeadsCampaigns: Prisma.$LeadsCampaignsPayload<ExtArgs>[]
+      leads: Prisma.$LeadsCampaignsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4159,7 +4159,7 @@ export namespace Prisma {
    */
   export interface Prisma__CampaignsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    LeadsCampaigns<T extends Campaigns$LeadsCampaignsArgs<ExtArgs> = {}>(args?: Subset<T, Campaigns$LeadsCampaignsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadsCampaignsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    leads<T extends Campaigns$leadsArgs<ExtArgs> = {}>(args?: Subset<T, Campaigns$leadsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadsCampaignsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4582,9 +4582,9 @@ export namespace Prisma {
   }
 
   /**
-   * Campaigns.LeadsCampaigns
+   * Campaigns.leads
    */
-  export type Campaigns$LeadsCampaignsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Campaigns$leadsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the LeadsCampaigns
      */
@@ -5933,7 +5933,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Leads"> | Date | string
     updatedAt?: DateTimeFilter<"Leads"> | Date | string
     groups?: GroupsListRelationFilter
-    LeadsCampaigns?: LeadsCampaignsListRelationFilter
+    campaigns?: LeadsCampaignsListRelationFilter
   }
 
   export type LeadsOrderByWithRelationInput = {
@@ -5945,7 +5945,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     groups?: GroupsOrderByRelationAggregateInput
-    LeadsCampaigns?: LeadsCampaignsOrderByRelationAggregateInput
+    campaigns?: LeadsCampaignsOrderByRelationAggregateInput
   }
 
   export type LeadsWhereUniqueInput = Prisma.AtLeast<{
@@ -5960,7 +5960,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Leads"> | Date | string
     updatedAt?: DateTimeFilter<"Leads"> | Date | string
     groups?: GroupsListRelationFilter
-    LeadsCampaigns?: LeadsCampaignsListRelationFilter
+    campaigns?: LeadsCampaignsListRelationFilter
   }, "id" | "email">
 
   export type LeadsOrderByWithAggregationInput = {
@@ -6000,7 +6000,7 @@ export namespace Prisma {
     description?: StringFilter<"Campaigns"> | string
     startDate?: DateTimeFilter<"Campaigns"> | Date | string
     endDate?: DateTimeNullableFilter<"Campaigns"> | Date | string | null
-    LeadsCampaigns?: LeadsCampaignsListRelationFilter
+    leads?: LeadsCampaignsListRelationFilter
   }
 
   export type CampaignsOrderByWithRelationInput = {
@@ -6009,7 +6009,7 @@ export namespace Prisma {
     description?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrderInput | SortOrder
-    LeadsCampaigns?: LeadsCampaignsOrderByRelationAggregateInput
+    leads?: LeadsCampaignsOrderByRelationAggregateInput
   }
 
   export type CampaignsWhereUniqueInput = Prisma.AtLeast<{
@@ -6021,7 +6021,7 @@ export namespace Prisma {
     description?: StringFilter<"Campaigns"> | string
     startDate?: DateTimeFilter<"Campaigns"> | Date | string
     endDate?: DateTimeNullableFilter<"Campaigns"> | Date | string | null
-    LeadsCampaigns?: LeadsCampaignsListRelationFilter
+    leads?: LeadsCampaignsListRelationFilter
   }, "id">
 
   export type CampaignsOrderByWithAggregationInput = {
@@ -6150,7 +6150,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     groups?: GroupsCreateNestedManyWithoutLeadsInput
-    LeadsCampaigns?: LeadsCampaignsCreateNestedManyWithoutLeadsInput
+    campaigns?: LeadsCampaignsCreateNestedManyWithoutLeadsInput
   }
 
   export type LeadsUncheckedCreateInput = {
@@ -6162,7 +6162,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     groups?: GroupsUncheckedCreateNestedManyWithoutLeadsInput
-    LeadsCampaigns?: LeadsCampaignsUncheckedCreateNestedManyWithoutLeadsInput
+    campaigns?: LeadsCampaignsUncheckedCreateNestedManyWithoutLeadsInput
   }
 
   export type LeadsUpdateInput = {
@@ -6173,7 +6173,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     groups?: GroupsUpdateManyWithoutLeadsNestedInput
-    LeadsCampaigns?: LeadsCampaignsUpdateManyWithoutLeadsNestedInput
+    campaigns?: LeadsCampaignsUpdateManyWithoutLeadsNestedInput
   }
 
   export type LeadsUncheckedUpdateInput = {
@@ -6185,7 +6185,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     groups?: GroupsUncheckedUpdateManyWithoutLeadsNestedInput
-    LeadsCampaigns?: LeadsCampaignsUncheckedUpdateManyWithoutLeadsNestedInput
+    campaigns?: LeadsCampaignsUncheckedUpdateManyWithoutLeadsNestedInput
   }
 
   export type LeadsCreateManyInput = {
@@ -6222,7 +6222,7 @@ export namespace Prisma {
     description: string
     startDate: Date | string
     endDate?: Date | string | null
-    LeadsCampaigns?: LeadsCampaignsCreateNestedManyWithoutCampaingsInput
+    leads?: LeadsCampaignsCreateNestedManyWithoutCampaingsInput
   }
 
   export type CampaignsUncheckedCreateInput = {
@@ -6231,7 +6231,7 @@ export namespace Prisma {
     description: string
     startDate: Date | string
     endDate?: Date | string | null
-    LeadsCampaigns?: LeadsCampaignsUncheckedCreateNestedManyWithoutCampaingsInput
+    leads?: LeadsCampaignsUncheckedCreateNestedManyWithoutCampaingsInput
   }
 
   export type CampaignsUpdateInput = {
@@ -6239,7 +6239,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    LeadsCampaigns?: LeadsCampaignsUpdateManyWithoutCampaingsNestedInput
+    leads?: LeadsCampaignsUpdateManyWithoutCampaingsNestedInput
   }
 
   export type CampaignsUncheckedUpdateInput = {
@@ -6248,7 +6248,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    LeadsCampaigns?: LeadsCampaignsUncheckedUpdateManyWithoutCampaingsNestedInput
+    leads?: LeadsCampaignsUncheckedUpdateManyWithoutCampaingsNestedInput
   }
 
   export type CampaignsCreateManyInput = {
@@ -6276,8 +6276,8 @@ export namespace Prisma {
 
   export type LeadsCampaignsCreateInput = {
     status: $Enums.LeadsCampaignsStatus
-    campaings: CampaignsCreateNestedOneWithoutLeadsCampaignsInput
-    leads: LeadsCreateNestedOneWithoutLeadsCampaignsInput
+    campaings: CampaignsCreateNestedOneWithoutLeadsInput
+    leads: LeadsCreateNestedOneWithoutCampaignsInput
   }
 
   export type LeadsCampaignsUncheckedCreateInput = {
@@ -6288,8 +6288,8 @@ export namespace Prisma {
 
   export type LeadsCampaignsUpdateInput = {
     status?: EnumLeadsCampaignsStatusFieldUpdateOperationsInput | $Enums.LeadsCampaignsStatus
-    campaings?: CampaignsUpdateOneRequiredWithoutLeadsCampaignsNestedInput
-    leads?: LeadsUpdateOneRequiredWithoutLeadsCampaignsNestedInput
+    campaings?: CampaignsUpdateOneRequiredWithoutLeadsNestedInput
+    leads?: LeadsUpdateOneRequiredWithoutCampaignsNestedInput
   }
 
   export type LeadsCampaignsUncheckedUpdateInput = {
@@ -6816,15 +6816,15 @@ export namespace Prisma {
     deleteMany?: LeadsCampaignsScalarWhereInput | LeadsCampaignsScalarWhereInput[]
   }
 
-  export type CampaignsCreateNestedOneWithoutLeadsCampaignsInput = {
-    create?: XOR<CampaignsCreateWithoutLeadsCampaignsInput, CampaignsUncheckedCreateWithoutLeadsCampaignsInput>
-    connectOrCreate?: CampaignsCreateOrConnectWithoutLeadsCampaignsInput
+  export type CampaignsCreateNestedOneWithoutLeadsInput = {
+    create?: XOR<CampaignsCreateWithoutLeadsInput, CampaignsUncheckedCreateWithoutLeadsInput>
+    connectOrCreate?: CampaignsCreateOrConnectWithoutLeadsInput
     connect?: CampaignsWhereUniqueInput
   }
 
-  export type LeadsCreateNestedOneWithoutLeadsCampaignsInput = {
-    create?: XOR<LeadsCreateWithoutLeadsCampaignsInput, LeadsUncheckedCreateWithoutLeadsCampaignsInput>
-    connectOrCreate?: LeadsCreateOrConnectWithoutLeadsCampaignsInput
+  export type LeadsCreateNestedOneWithoutCampaignsInput = {
+    create?: XOR<LeadsCreateWithoutCampaignsInput, LeadsUncheckedCreateWithoutCampaignsInput>
+    connectOrCreate?: LeadsCreateOrConnectWithoutCampaignsInput
     connect?: LeadsWhereUniqueInput
   }
 
@@ -6832,20 +6832,20 @@ export namespace Prisma {
     set?: $Enums.LeadsCampaignsStatus
   }
 
-  export type CampaignsUpdateOneRequiredWithoutLeadsCampaignsNestedInput = {
-    create?: XOR<CampaignsCreateWithoutLeadsCampaignsInput, CampaignsUncheckedCreateWithoutLeadsCampaignsInput>
-    connectOrCreate?: CampaignsCreateOrConnectWithoutLeadsCampaignsInput
-    upsert?: CampaignsUpsertWithoutLeadsCampaignsInput
+  export type CampaignsUpdateOneRequiredWithoutLeadsNestedInput = {
+    create?: XOR<CampaignsCreateWithoutLeadsInput, CampaignsUncheckedCreateWithoutLeadsInput>
+    connectOrCreate?: CampaignsCreateOrConnectWithoutLeadsInput
+    upsert?: CampaignsUpsertWithoutLeadsInput
     connect?: CampaignsWhereUniqueInput
-    update?: XOR<XOR<CampaignsUpdateToOneWithWhereWithoutLeadsCampaignsInput, CampaignsUpdateWithoutLeadsCampaignsInput>, CampaignsUncheckedUpdateWithoutLeadsCampaignsInput>
+    update?: XOR<XOR<CampaignsUpdateToOneWithWhereWithoutLeadsInput, CampaignsUpdateWithoutLeadsInput>, CampaignsUncheckedUpdateWithoutLeadsInput>
   }
 
-  export type LeadsUpdateOneRequiredWithoutLeadsCampaignsNestedInput = {
-    create?: XOR<LeadsCreateWithoutLeadsCampaignsInput, LeadsUncheckedCreateWithoutLeadsCampaignsInput>
-    connectOrCreate?: LeadsCreateOrConnectWithoutLeadsCampaignsInput
-    upsert?: LeadsUpsertWithoutLeadsCampaignsInput
+  export type LeadsUpdateOneRequiredWithoutCampaignsNestedInput = {
+    create?: XOR<LeadsCreateWithoutCampaignsInput, LeadsUncheckedCreateWithoutCampaignsInput>
+    connectOrCreate?: LeadsCreateOrConnectWithoutCampaignsInput
+    upsert?: LeadsUpsertWithoutCampaignsInput
     connect?: LeadsWhereUniqueInput
-    update?: XOR<XOR<LeadsUpdateToOneWithWhereWithoutLeadsCampaignsInput, LeadsUpdateWithoutLeadsCampaignsInput>, LeadsUncheckedUpdateWithoutLeadsCampaignsInput>
+    update?: XOR<XOR<LeadsUpdateToOneWithWhereWithoutCampaignsInput, LeadsUpdateWithoutCampaignsInput>, LeadsUncheckedUpdateWithoutCampaignsInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -7019,7 +7019,7 @@ export namespace Prisma {
     status?: $Enums.LeadStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    LeadsCampaigns?: LeadsCampaignsCreateNestedManyWithoutLeadsInput
+    campaigns?: LeadsCampaignsCreateNestedManyWithoutLeadsInput
   }
 
   export type LeadsUncheckedCreateWithoutGroupsInput = {
@@ -7030,7 +7030,7 @@ export namespace Prisma {
     status?: $Enums.LeadStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    LeadsCampaigns?: LeadsCampaignsUncheckedCreateNestedManyWithoutLeadsInput
+    campaigns?: LeadsCampaignsUncheckedCreateNestedManyWithoutLeadsInput
   }
 
   export type LeadsCreateOrConnectWithoutGroupsInput = {
@@ -7085,7 +7085,7 @@ export namespace Prisma {
 
   export type LeadsCampaignsCreateWithoutLeadsInput = {
     status: $Enums.LeadsCampaignsStatus
-    campaings: CampaignsCreateNestedOneWithoutLeadsCampaignsInput
+    campaings: CampaignsCreateNestedOneWithoutLeadsInput
   }
 
   export type LeadsCampaignsUncheckedCreateWithoutLeadsInput = {
@@ -7155,7 +7155,7 @@ export namespace Prisma {
 
   export type LeadsCampaignsCreateWithoutCampaingsInput = {
     status: $Enums.LeadsCampaignsStatus
-    leads: LeadsCreateNestedOneWithoutLeadsCampaignsInput
+    leads: LeadsCreateNestedOneWithoutCampaignsInput
   }
 
   export type LeadsCampaignsUncheckedCreateWithoutCampaingsInput = {
@@ -7189,14 +7189,14 @@ export namespace Prisma {
     data: XOR<LeadsCampaignsUpdateManyMutationInput, LeadsCampaignsUncheckedUpdateManyWithoutCampaingsInput>
   }
 
-  export type CampaignsCreateWithoutLeadsCampaignsInput = {
+  export type CampaignsCreateWithoutLeadsInput = {
     name: string
     description: string
     startDate: Date | string
     endDate?: Date | string | null
   }
 
-  export type CampaignsUncheckedCreateWithoutLeadsCampaignsInput = {
+  export type CampaignsUncheckedCreateWithoutLeadsInput = {
     id?: number
     name: string
     description: string
@@ -7204,12 +7204,12 @@ export namespace Prisma {
     endDate?: Date | string | null
   }
 
-  export type CampaignsCreateOrConnectWithoutLeadsCampaignsInput = {
+  export type CampaignsCreateOrConnectWithoutLeadsInput = {
     where: CampaignsWhereUniqueInput
-    create: XOR<CampaignsCreateWithoutLeadsCampaignsInput, CampaignsUncheckedCreateWithoutLeadsCampaignsInput>
+    create: XOR<CampaignsCreateWithoutLeadsInput, CampaignsUncheckedCreateWithoutLeadsInput>
   }
 
-  export type LeadsCreateWithoutLeadsCampaignsInput = {
+  export type LeadsCreateWithoutCampaignsInput = {
     name: string
     email: string
     phone: string
@@ -7219,7 +7219,7 @@ export namespace Prisma {
     groups?: GroupsCreateNestedManyWithoutLeadsInput
   }
 
-  export type LeadsUncheckedCreateWithoutLeadsCampaignsInput = {
+  export type LeadsUncheckedCreateWithoutCampaignsInput = {
     id?: number
     name: string
     email: string
@@ -7230,30 +7230,30 @@ export namespace Prisma {
     groups?: GroupsUncheckedCreateNestedManyWithoutLeadsInput
   }
 
-  export type LeadsCreateOrConnectWithoutLeadsCampaignsInput = {
+  export type LeadsCreateOrConnectWithoutCampaignsInput = {
     where: LeadsWhereUniqueInput
-    create: XOR<LeadsCreateWithoutLeadsCampaignsInput, LeadsUncheckedCreateWithoutLeadsCampaignsInput>
+    create: XOR<LeadsCreateWithoutCampaignsInput, LeadsUncheckedCreateWithoutCampaignsInput>
   }
 
-  export type CampaignsUpsertWithoutLeadsCampaignsInput = {
-    update: XOR<CampaignsUpdateWithoutLeadsCampaignsInput, CampaignsUncheckedUpdateWithoutLeadsCampaignsInput>
-    create: XOR<CampaignsCreateWithoutLeadsCampaignsInput, CampaignsUncheckedCreateWithoutLeadsCampaignsInput>
+  export type CampaignsUpsertWithoutLeadsInput = {
+    update: XOR<CampaignsUpdateWithoutLeadsInput, CampaignsUncheckedUpdateWithoutLeadsInput>
+    create: XOR<CampaignsCreateWithoutLeadsInput, CampaignsUncheckedCreateWithoutLeadsInput>
     where?: CampaignsWhereInput
   }
 
-  export type CampaignsUpdateToOneWithWhereWithoutLeadsCampaignsInput = {
+  export type CampaignsUpdateToOneWithWhereWithoutLeadsInput = {
     where?: CampaignsWhereInput
-    data: XOR<CampaignsUpdateWithoutLeadsCampaignsInput, CampaignsUncheckedUpdateWithoutLeadsCampaignsInput>
+    data: XOR<CampaignsUpdateWithoutLeadsInput, CampaignsUncheckedUpdateWithoutLeadsInput>
   }
 
-  export type CampaignsUpdateWithoutLeadsCampaignsInput = {
+  export type CampaignsUpdateWithoutLeadsInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type CampaignsUncheckedUpdateWithoutLeadsCampaignsInput = {
+  export type CampaignsUncheckedUpdateWithoutLeadsInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -7261,18 +7261,18 @@ export namespace Prisma {
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type LeadsUpsertWithoutLeadsCampaignsInput = {
-    update: XOR<LeadsUpdateWithoutLeadsCampaignsInput, LeadsUncheckedUpdateWithoutLeadsCampaignsInput>
-    create: XOR<LeadsCreateWithoutLeadsCampaignsInput, LeadsUncheckedCreateWithoutLeadsCampaignsInput>
+  export type LeadsUpsertWithoutCampaignsInput = {
+    update: XOR<LeadsUpdateWithoutCampaignsInput, LeadsUncheckedUpdateWithoutCampaignsInput>
+    create: XOR<LeadsCreateWithoutCampaignsInput, LeadsUncheckedCreateWithoutCampaignsInput>
     where?: LeadsWhereInput
   }
 
-  export type LeadsUpdateToOneWithWhereWithoutLeadsCampaignsInput = {
+  export type LeadsUpdateToOneWithWhereWithoutCampaignsInput = {
     where?: LeadsWhereInput
-    data: XOR<LeadsUpdateWithoutLeadsCampaignsInput, LeadsUncheckedUpdateWithoutLeadsCampaignsInput>
+    data: XOR<LeadsUpdateWithoutCampaignsInput, LeadsUncheckedUpdateWithoutCampaignsInput>
   }
 
-  export type LeadsUpdateWithoutLeadsCampaignsInput = {
+  export type LeadsUpdateWithoutCampaignsInput = {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
@@ -7282,7 +7282,7 @@ export namespace Prisma {
     groups?: GroupsUpdateManyWithoutLeadsNestedInput
   }
 
-  export type LeadsUncheckedUpdateWithoutLeadsCampaignsInput = {
+  export type LeadsUncheckedUpdateWithoutCampaignsInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -7300,7 +7300,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFieldUpdateOperationsInput | $Enums.LeadStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    LeadsCampaigns?: LeadsCampaignsUpdateManyWithoutLeadsNestedInput
+    campaigns?: LeadsCampaignsUpdateManyWithoutLeadsNestedInput
   }
 
   export type LeadsUncheckedUpdateWithoutGroupsInput = {
@@ -7311,7 +7311,7 @@ export namespace Prisma {
     status?: EnumLeadStatusFieldUpdateOperationsInput | $Enums.LeadStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    LeadsCampaigns?: LeadsCampaignsUncheckedUpdateManyWithoutLeadsNestedInput
+    campaigns?: LeadsCampaignsUncheckedUpdateManyWithoutLeadsNestedInput
   }
 
   export type LeadsUncheckedUpdateManyWithoutGroupsInput = {
@@ -7348,7 +7348,7 @@ export namespace Prisma {
 
   export type LeadsCampaignsUpdateWithoutLeadsInput = {
     status?: EnumLeadsCampaignsStatusFieldUpdateOperationsInput | $Enums.LeadsCampaignsStatus
-    campaings?: CampaignsUpdateOneRequiredWithoutLeadsCampaignsNestedInput
+    campaings?: CampaignsUpdateOneRequiredWithoutLeadsNestedInput
   }
 
   export type LeadsCampaignsUncheckedUpdateWithoutLeadsInput = {
@@ -7368,7 +7368,7 @@ export namespace Prisma {
 
   export type LeadsCampaignsUpdateWithoutCampaingsInput = {
     status?: EnumLeadsCampaignsStatusFieldUpdateOperationsInput | $Enums.LeadsCampaignsStatus
-    leads?: LeadsUpdateOneRequiredWithoutLeadsCampaignsNestedInput
+    leads?: LeadsUpdateOneRequiredWithoutCampaignsNestedInput
   }
 
   export type LeadsCampaignsUncheckedUpdateWithoutCampaingsInput = {
