@@ -6275,7 +6275,7 @@ export namespace Prisma {
   }
 
   export type LeadsCampaignsCreateInput = {
-    status: $Enums.LeadsCampaignsStatus
+    status?: $Enums.LeadsCampaignsStatus
     campaings: CampaignsCreateNestedOneWithoutLeadsInput
     leads: LeadsCreateNestedOneWithoutCampaignsInput
   }
@@ -6283,7 +6283,7 @@ export namespace Prisma {
   export type LeadsCampaignsUncheckedCreateInput = {
     leadId: number
     campaignId: number
-    status: $Enums.LeadsCampaignsStatus
+    status?: $Enums.LeadsCampaignsStatus
   }
 
   export type LeadsCampaignsUpdateInput = {
@@ -6301,7 +6301,7 @@ export namespace Prisma {
   export type LeadsCampaignsCreateManyInput = {
     leadId: number
     campaignId: number
-    status: $Enums.LeadsCampaignsStatus
+    status?: $Enums.LeadsCampaignsStatus
   }
 
   export type LeadsCampaignsUpdateManyMutationInput = {
@@ -7084,13 +7084,13 @@ export namespace Prisma {
   }
 
   export type LeadsCampaignsCreateWithoutLeadsInput = {
-    status: $Enums.LeadsCampaignsStatus
+    status?: $Enums.LeadsCampaignsStatus
     campaings: CampaignsCreateNestedOneWithoutLeadsInput
   }
 
   export type LeadsCampaignsUncheckedCreateWithoutLeadsInput = {
     campaignId: number
-    status: $Enums.LeadsCampaignsStatus
+    status?: $Enums.LeadsCampaignsStatus
   }
 
   export type LeadsCampaignsCreateOrConnectWithoutLeadsInput = {
@@ -7154,13 +7154,13 @@ export namespace Prisma {
   }
 
   export type LeadsCampaignsCreateWithoutCampaingsInput = {
-    status: $Enums.LeadsCampaignsStatus
+    status?: $Enums.LeadsCampaignsStatus
     leads: LeadsCreateNestedOneWithoutCampaignsInput
   }
 
   export type LeadsCampaignsUncheckedCreateWithoutCampaingsInput = {
     leadId: number
-    status: $Enums.LeadsCampaignsStatus
+    status?: $Enums.LeadsCampaignsStatus
   }
 
   export type LeadsCampaignsCreateOrConnectWithoutCampaingsInput = {
@@ -7326,7 +7326,7 @@ export namespace Prisma {
 
   export type LeadsCampaignsCreateManyLeadsInput = {
     campaignId: number
-    status: $Enums.LeadsCampaignsStatus
+    status?: $Enums.LeadsCampaignsStatus
   }
 
   export type GroupsUpdateWithoutLeadsInput = {
@@ -7363,7 +7363,7 @@ export namespace Prisma {
 
   export type LeadsCampaignsCreateManyCampaingsInput = {
     leadId: number
-    status: $Enums.LeadsCampaignsStatus
+    status?: $Enums.LeadsCampaignsStatus
   }
 
   export type LeadsCampaignsUpdateWithoutCampaingsInput = {

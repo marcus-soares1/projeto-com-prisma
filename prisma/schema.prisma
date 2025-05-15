@@ -67,7 +67,7 @@ model Campaigns {
 model LeadsCampaigns {
   leadId     Int
   campaignId Int
-  status     LeadsCampaignsStatus
+  status     LeadsCampaignsStatus @default(New)
   campaings  Campaigns            @relation(fields: [campaignId], references: [id])
   leads      Leads                @relation(fields: [leadId], references: [id])
 
