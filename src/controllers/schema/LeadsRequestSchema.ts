@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const LeadStatusSchema = z.enum([
+export const LeadStatusSchema = z.enum([
     "New",
     "Contacted",
     "Qualified",
