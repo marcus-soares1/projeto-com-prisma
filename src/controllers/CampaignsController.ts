@@ -18,7 +18,14 @@ export class CampaignsController {
     show: Handler = async (req, res, next) => {
         try {
             const id = Number(req.params.id)
-            const campaign = await prisma.campaigns.findUnique({ where: { id: Number(id) } });
+            const campaign = await prisma.campaigns.findUnique({ 
+                where: { id: Number(id) },
+                include: { 
+                    leads: {
+                        include: { leads: true }
+                    } 
+                } 
+            });
 
             if(!campaign) throw new HttpError(404, 'Campaign not found')
 
@@ -32,9 +39,7 @@ export class CampaignsController {
         try {
             const body = CreateCampaignRequestSchema.parse(req.body)
 
-            const newCampaign = await prisma.campaigns.create({
-                data: body,
-            })
+            const newCampaign = await prisma.campaigns.create({ data: body })
 
             res.status(201).json(newCampaign);
         } catch (error) {
@@ -69,7 +74,7 @@ export class CampaignsController {
             if(!campaignExists) throw new HttpError(404, 'Campaign not found')
 
             const deletedCampaign = await prisma.campaigns.delete({ where: { id } })
-            res.status(204).json(deletedCampaign)
+            res.json(deletedCampaign)
         } catch (error) {
             next(error)
         }

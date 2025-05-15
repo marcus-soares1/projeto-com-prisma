@@ -10,10 +10,8 @@ app.use(cors())
 app.use(express.json())
 app.use('/api/leads', leadsRouter)
 app.use('/api/groups', groupsRouter)
-app.use('/api/campaign', campaignsRouter)
+app.use('/api/campaigns', campaignsRouter)
 app.use(errorHandlerMiddleware)
-
-
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, ()=> console.log(`http://localhost:${PORT}/`))
