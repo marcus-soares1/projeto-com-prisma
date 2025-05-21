@@ -42,5 +42,5 @@ export const AddLeadsRequestSchema = z.object({
 })
 
 export const UpdateLeadStatusSchema = z.object({
-    status: LeadsCampaignsStatusSchema.optional()
+    status: LeadsCampaignsStatusSchema
 })

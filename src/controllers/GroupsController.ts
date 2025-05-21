@@ -46,11 +46,10 @@ export class GroupsController {
         try {
             const id = Number(req.params.id)
             const body = UpdateGroupsRequestSchema.parse(req.body)
-
-            const groupExists = await this.groupsRepository.findById(id)
-            if(!groupExists) throw new HttpError(404, 'Group not found')
-
+            
             const updatedGroup = await this.groupsRepository.updateById(id, body)
+            if(!updatedGroup) throw new HttpError(404, 'Group not found')
+
             res.json(updatedGroup)
         } catch (error) {
             next(error)
@@ -61,10 +60,9 @@ export class GroupsController {
     delete: Handler = async (req, res, next) => {
         try {
             const id = Number(req.params.id)
-            const groupExists = await this.groupsRepository.findById(id)
-            if(!groupExists) throw new HttpError(404, 'Group not found')
-
+            
             const deletedGroup = await this.groupsRepository.deleteById(id)
+            if(!deletedGroup) throw new HttpError(404, 'Group not found')
 
             res.json(deletedGroup)
         } catch (error) {
