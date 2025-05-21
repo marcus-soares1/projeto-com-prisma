@@ -1,4 +1,5 @@
 import { Leads } from "../generated/prisma";
+import { LeadsCampaignsStatus } from "./CampaignsRepository";
 
 export type LeadsStatus = "New" | "Contacted" | "Qualified" | "Converted" | "Unresponsive" | "Disqualified" | "Archived"
 
@@ -9,7 +10,9 @@ export interface ILeadsWhereParams {
         mode?: "default" | "insensitive" 
     }
     status?: LeadsStatus
+    campaignStatus?: LeadsCampaignsStatus
     groupId?: number
+    campaignId?: number
 }
 
 export interface IFindLeadsParams {
