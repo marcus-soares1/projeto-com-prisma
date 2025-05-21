@@ -1,9 +1,15 @@
 import { Router } from 'express'
 import { CampaignsController } from '../controllers/CampaignsController'
 import { CampaignsLeadsController } from '../controllers/CampaignsLeadsController'
+import { PrismaCampaignsRepository } from '../repositories/prisma/PrismaCampaignsRepository'
+import { PrismaLeadsRepository } from '../repositories/prisma/PrismaLeadsRepository'
 
-const campaignsController = new CampaignsController()
-const campaignsLeadsController = new CampaignsLeadsController()
+// Instances
+const campaignsRespository = new PrismaCampaignsRepository()
+const leadsRepository = new PrismaLeadsRepository()
+
+const campaignsController = new CampaignsController(campaignsRespository)
+const campaignsLeadsController = new CampaignsLeadsController(campaignsRespository, leadsRepository)
 
 const campaignsRouter = Router()
 
