@@ -1,12 +1,17 @@
 import { Router } from "express";
 import { GroupsController } from "../controllers/GroupsController";
 import { GroupsLeadsController } from "../controllers/GroupsLeadsController";
+import { PrismaGroupsRepository } from "../repositories/prisma/PrismaGroupsRepository";
+import { PrismaLeadsRepository } from "../repositories/prisma/PrismaLeadsRepository";
 
 const groupsRouter = Router()
 
 // Instances
-const groupsController = new GroupsController()
-const groupsLeadsController = new GroupsLeadsController()
+const groupsRepository = new PrismaGroupsRepository()
+const leadsRepository = new PrismaLeadsRepository()
+
+const groupsController = new GroupsController(groupsRepository)
+const groupsLeadsController = new GroupsLeadsController(groupsRepository, leadsRepository)
 
 groupsRouter.get('/', groupsController.index)
 groupsRouter.post('/', groupsController.create)
