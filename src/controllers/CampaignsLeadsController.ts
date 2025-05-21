@@ -1,9 +1,7 @@
 import { Handler } from "express";
 import { AddLeadsRequestSchema, GetCampaignsLeadsRequestSchema, UpdateLeadStatusSchema } from "./schema/CampaingsRequestSchema";
-import { prisma } from "../database";
-import { Prisma } from "../generated/prisma";
 import { ICampaignsRepository } from "../repositories/CampaignsRepository";
-import { ILeadsRepository } from "../repositories/LeadsRepository";
+import { ILeadsRepository, ILeadsWhereParams } from "../repositories/LeadsRepository";
 
 export class CampaignsLeadsController {
     constructor(private readonly campaignsRepository: ICampaignsRepository, private readonly leadsRepository: ILeadsRepository) {}
@@ -14,42 +12,24 @@ export class CampaignsLeadsController {
             const { page = "1", pageSize = "10", name, status, sortBy = "name", order = "asc" } = query
 
             const pageNumber = Number(page)
-            const pageSizeNumber = Number(pageSize)
+            const limit = Number(pageSize)
+            const offset = (pageNumber - 1) * limit
 
-            const where: Prisma.LeadsWhereInput = {
-                campaigns: {
-                    some: { campaignId }
-                }
-            }
+            const where: ILeadsWhereParams = { campaignId, campaignStatus: status }
 
-            if (name) where.name = { contains: name, mode: 'insensitive' }
-            if (status) where.campaigns = { some: { status } }
+            if (name) where.name = { like: name, mode: 'insensitive' }
 
-            const leads = await prisma.leads.findMany({
-                where,
-                orderBy: {[sortBy]: order },
-                skip: (pageNumber-1) * pageSizeNumber,
-                take: pageSizeNumber,
-                include: {
-                    campaigns: {
-                        select: {
-                            campaignId: true,
-                            leadId: true,
-                            status: true
-                        }
-                    }
-                }
-            })
+            const leads = await this.leadsRepository.find({where, sortBy, order, limit, offset, join: { campaigns: true }})
 
-            const total = await prisma.leads.count({ where })
+            const total = await this.leadsRepository.count(where)
 
             res.json({
                 data: leads,
                 pagination: {
                     page: pageNumber,
-                    pageSize: pageSizeNumber,
+                    pageSize: limit,
                     total,
-                    totalPages: Math.ceil(total / pageSizeNumber)
+                    totalPages: Math.ceil(total / limit)
                 }
             })
         } catch (error) {

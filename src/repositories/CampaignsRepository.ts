@@ -1,4 +1,4 @@
-import { Campaigns, Groups, Leads, LeadStatus } from "../generated/prisma"
+import { Campaigns } from "../generated/prisma"
 
 export type LeadsCampaignsStatus = "New" | "Engaged" | "Folloup_Scheduled" | "Contacted" | "Converted" | "Unresponsive" | "Disqualified" | "Re_Engaged" | "Opted_Out" 
 
