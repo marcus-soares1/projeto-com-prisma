@@ -1,12 +1,14 @@
 import { Router } from "express";
 import { LeadsController } from "../controllers/LeadsController";
 import { PrismaLeadsRepository } from "../repositories/prisma/PrismaLeadsRepository";
+import { LeadsService } from "../services/LeadService";
 
 const leadsRouter = Router()
 
 // Instances
 const leadsRepository = new PrismaLeadsRepository()
-const leadsController = new LeadsController(leadsRepository)
+const leadsService = new LeadsService(leadsRepository)
+const leadsController = new LeadsController(leadsService)
 
 
 leadsRouter.get('/', leadsController.index)
